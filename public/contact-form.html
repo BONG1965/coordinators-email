@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for form */
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>COORDINATOR'S EMAIL</h1>
+        <form id="contactForm" action="https://dashboard.render.com/send-email" method="POST">
+            <label for="senderEmail">SENDER'S EMAIL:</label>
+            <input type="email" id="senderEmail" name="senderEmail" required><br>
+
+            <label for="recipients">APPLICANT'S EMAIL:</label>
+            <input type="text" id="recipients" name="recipients" required><br>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" value="Congratulations!" required><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required>
+CONGRATULATIONS!
+You were selected, to complete your application please follow the herein instructions:
+1) Download and complete the application form;
+2) Go to SSS website and request/download your Members Data Record;
+3) Go to PhilHealth website and request/download your Members Data Record;
+4) Go to PagIBIG website and request/download your Members Data Record;
+5) Go to BIR website for your TIN 
+6) EMAIL BACK all to (coordinator's email).
+            </textarea><br>
+
+            <button type="submit">SEND INVITE</button>
+        </form>
+    </div>
+
+    <script>
+        // Set the form action to use the deployed BASE_URL
+        document.getElementById('contactForm').action = `${window.location.origin}/send-email`;
+    </script>
+</body>
+</html>
